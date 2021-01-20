@@ -17,13 +17,18 @@
         });
 
         socket.on('disconnect', function() {
-            console.log('Se perdio conexión al servidor')
+            console.log('Se perdio la conexión al servidor')
         });
 
-        socket.emit('mensaje', { nombre: 'Fernando' } );
+        socket.emit('mensaje', { nombre: 'José Alfredo' } );
 
-        socket.on('mensaje', function(payload) {
-            console.log('Escuchando', payload);
+        socket.on('nuevo-mensaje', function( payload ) {
+            console.log('Escuchando: ', payload);
+        });
+
+        socket.on('active-bands', function( bands ) {
+            console.clear();
+            console.table(bands);
         });
     </script>
 </body>
